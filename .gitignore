@@ -1,1 +1,26 @@
-**/.nwb
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+
+# Ignore nwb files
+*.nwb 
+
+# Ignore environment-specific files
+.env
+
+# Ignore package-lock.json for npm
+package-lock.json
+
+# Ignore compiled files
+/dist/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Visual Studio Code settings
+.vscode/
