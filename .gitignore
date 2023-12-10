@@ -10,6 +10,12 @@ node_modules/
 # Ignore nwb files
 *.nwb 
 
+# Ignore Model Checkpoints
+*.pth 
+*.pt
+*.h5
+*.ckpt
+
 # Ignore environment-specific files
 .env
 
