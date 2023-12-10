@@ -1,2 +1,22 @@
 MEng Project - Fall 2023
 
+
+Workflow:
+Test in local, 
+push to github,
+  clone from server,
+  train in server
+  copy trained model from server
+  Run Evals
+
+
+Main Ideas:
+1) l-value for saving history of data
+2) Adaptive thresholding 
+
+
+Datasets: 
+
+Two Photon dataset from Mouse
+Monkey neural to behaviour dataset 
+
