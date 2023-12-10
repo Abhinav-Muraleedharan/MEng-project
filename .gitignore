@@ -10,6 +10,9 @@ node_modules/
 # Ignore nwb files
 *.nwb 
 
+# Ignore .npy files
+*.npy
+
 # Ignore Model Checkpoints
 *.pth 
 *.pt
