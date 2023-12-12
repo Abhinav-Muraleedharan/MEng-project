@@ -15,7 +15,8 @@ Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32)
 # Instantiate the model
 input_size = X_neural.shape[1]  # Assuming the number of features in X_neural is the input size
 output_size = Y_target.shape[1]  # Assuming the number of features in Y_target is the output size
-hidden_layer_sizes = [130, 100,130,100,60,70,50,40,30,20,10,5,3]  # Example hidden layer sizes
+# hidden_layer_sizes = [130, 100,130,100,60,70,50,40,30,20,10,5,3]  # Example hidden layer sizes
+hidden_layer_sizes = [130, 100,130,100,130,100,100,130,100,130,100,130,100,50,20,10,5,3]
 dropout_prob = 0.5  #dropout probability
 
 # instantiate model
@@ -32,23 +33,26 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # Training loop
 num_epochs = 1000
-
+print(X_neural.shape[0])
 for epoch in range(num_epochs):
-    # Forward pass
-
-    outputs = model(X_neural_tensor)
-    
-    # Compute the loss
-    loss = criterion(outputs, Y_target_tensor)
-    
-    # Backward pass and optimization
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
-
-    # Print the loss every 100 epochs
-    if (epoch + 1) % 10 == 0:
+    X_i = torch.zeros(1, input_size) 
+    for i in range(X_neural.shape[0]):
+        X_i = 0.5*X_neural_tensor[i,:] + 0.5*X_i 
+        # Forward pass
+        outputs = model(X_i)
+        # Compute the loss
+        Y = Y_target_tensor[i,:].view(1,3)
+        loss = criterion(outputs, Y)
+        # Backward pass and optimization
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        if (i+ 1) % 1000 == 0:
+            print(f'i [{i+1}/{num_epochs}], Loss: {loss.item():.4f}')
+        # Print the loss every 100 epochs
+    if (epoch + 1) % 100 == 0:
         print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+         # print(X_i)
 
 # Save the trained model
 torch.save(model.state_dict(), 'trained_model.pth')
