@@ -15,11 +15,16 @@ Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32)
 # Instantiate the model
 input_size = X_neural.shape[1]  # Assuming the number of features in X_neural is the input size
 output_size = Y_target.shape[1]  # Assuming the number of features in Y_target is the output size
-hidden_layer_sizes = [64, 32]  # Example hidden layer sizes
+hidden_layer_sizes = [130, 100,130,100,60,70,50,40,30,20,10,5,3]  # Example hidden layer sizes
 dropout_prob = 0.5  #dropout probability
 
 # instantiate model
 model = Neuro_behaviour_model(input_size, hidden_layer_sizes, output_size, dropout_prob)
+
+#print number of parameters::
+
+num_params = sum(p.numel() for p in model.parameters())
+print(f"Number of parameters in the model: {num_params}")
 
 # Define the loss function and the optimizer
 criterion = nn.MSELoss()
@@ -30,7 +35,7 @@ num_epochs = 1000
 
 for epoch in range(num_epochs):
     # Forward pass
-    
+
     outputs = model(X_neural_tensor)
     
     # Compute the loss
