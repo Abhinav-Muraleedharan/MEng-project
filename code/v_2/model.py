@@ -17,7 +17,6 @@ class Neuro_behaviour_model(nn.Module):
         # Add the hidden layers with dropout
         for i in range(1, len(hidden_sizes)):
             layers_list.append(nn.Linear(hidden_sizes[i - 1], hidden_sizes[i]))
-            layers_list.append(nn.BatchNorm1d(hidden_sizes[i]))
             layers_list.append(nn.ReLU())
             layers_list.append(nn.Dropout(p=dropout_prob))
 
