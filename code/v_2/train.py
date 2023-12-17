@@ -29,7 +29,7 @@ print(f"Number of parameters in the model: {num_params}")
 
 # Define the loss function and the optimizer
 criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 # Training loop
 num_epochs = 1000
