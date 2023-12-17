@@ -7,7 +7,8 @@ from model import Neuro_behaviour_model
 # Load data from npy files
 X_neural = np.load('X_neural.npy')
 Y_target = np.load('Y_target.npy')
-
+print("Checking nan in dataset")
+print(np.max(X_neural))
 # Convert data to PyTorch tensors
 X_neural_tensor = torch.tensor(X_neural, dtype=torch.float32)
 Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32)
@@ -16,7 +17,7 @@ Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32)
 input_size = X_neural.shape[1]  # Assuming the number of features in X_neural is the input size
 output_size = Y_target.shape[1]  # Assuming the number of features in Y_target is the output size
 # hidden_layer_sizes = [130, 100,130,100,60,70,50,40,30,20,10,5,3]  # Example hidden layer sizes
-hidden_layer_sizes = [130, 100,130,100,130,100,100,130,100,130,100,130,100,50,20,10,5,3]
+hidden_layer_sizes = [130, 100,130,50,20,10,5,3]
 dropout_prob = 0.5  #dropout probability
 
 # instantiate model
@@ -39,6 +40,9 @@ for epoch in range(num_epochs):
     for i in range(X_neural.shape[0]):
         X_i = 0.5*X_neural_tensor[i,:] + 0.5*X_i 
         # Forward pass
+        if i > 162000:
+            print(X_i)
+        # print(X_i)
         outputs = model(X_i)
         # Compute the loss
         Y = Y_target_tensor[i,:].view(1,3)

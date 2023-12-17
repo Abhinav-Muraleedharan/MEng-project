@@ -1,0 +1,59 @@
+\begin{thebibliography}{1}
+
+\bibitem{azabou2023unified}
+Mehdi Azabou, Vinam Arora, Venkataramana Ganesh, Ximeng Mao, Santosh
+  Nachimuthu, Michael~J Mendelson, Blake Richards, Matthew~G Perich, Guillaume
+  Lajoie, and Eva~L Dyer.
+\newblock A unified, scalable framework for neural population decoding.
+\newblock {\em arXiv preprint arXiv:2310.16046}, 2023.
+
+\bibitem{geneva2022transformers}
+Nicholas Geneva and Nicholas Zabaras.
+\newblock Transformers for modeling physical systems.
+\newblock {\em Neural Networks}, 146:272--289, 2022.
+
+\bibitem{hahn2020theoretical}
+Michael Hahn.
+\newblock Theoretical limitations of self-attention in neural sequence models.
+\newblock {\em Transactions of the Association for Computational Linguistics},
+  8:156--171, 2020.
+
+\bibitem{pandarinath2018inferring}
+Chethan Pandarinath, Daniel~J O’Shea, Jasmine Collins, Rafal Jozefowicz,
+  Sergey~D Stavisky, Jonathan~C Kao, Eric~M Trautmann, Matthew~T Kaufman,
+  Stephen~I Ryu, Leigh~R Hochberg, et~al.
+\newblock Inferring single-trial neural population dynamics using sequential
+  auto-encoders.
+\newblock {\em Nature methods}, 15(10):805--815, 2018.
+
+\bibitem{radford2018improving}
+Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever, et~al.
+\newblock Improving language understanding by generative pre-training.
+\newblock 2018.
+
+\bibitem{svoboda2006principles}
+Karel Svoboda and Ryohei Yasuda.
+\newblock Principles of two-photon excitation microscopy and its applications
+  to neuroscience.
+\newblock {\em Neuron}, 50(6):823--839, 2006.
+
+\bibitem{tseng2022shared}
+Shih-Yi Tseng, Selmaan~N Chettih, Charlotte Arlt, Roberto Barroso-Luque, and
+  Christopher~D Harvey.
+\newblock Shared and specialized coding across posterior cortical areas for
+  dynamic navigation decisions.
+\newblock {\em Neuron}, 110(15):2484--2502, 2022.
+
+\bibitem{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, {\L}ukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock {\em Advances in neural information processing systems}, 30, 2017.
+
+\bibitem{ye2021representation}
+Joel Ye and Chethan Pandarinath.
+\newblock Representation learning for neural population activity with neural
+  data transformers.
+\newblock {\em arXiv preprint arXiv:2108.01210}, 2021.
+
+\end{thebibliography}
