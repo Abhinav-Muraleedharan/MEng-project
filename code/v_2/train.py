@@ -7,11 +7,21 @@ from model import Neuro_behaviour_model
 # Load data from npy files
 X_neural = np.load('X_neural.npy')
 Y_target = np.load('Y_target.npy')
+X_neural[np.isnan(X_neural)] = 1
+Y_target[np.isnan(Y_target)] = 0
 print("Checking nan in dataset")
 print(np.max(X_neural))
 # Convert data to PyTorch tensors
 X_neural_tensor = torch.tensor(X_neural, dtype=torch.float32)
 Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32)
+
+contains_nan = torch.any(torch.isnan(X_neural_tensor))
+contains_nan = torch.any(torch.isnan(Y_target_tensor))
+print(Y_target_tensor[163000])
+if contains_nan:
+    print("The tensor contains NaN values.")
+else:
+    print("The tensor does not contain NaN values.")
 
 # Instantiate the model
 input_size = X_neural.shape[1]  # Assuming the number of features in X_neural is the input size
@@ -40,8 +50,8 @@ for epoch in range(num_epochs):
     for i in range(X_neural.shape[0]):
         X_i = 0.5*X_neural_tensor[i,:] + 0.5*X_i 
         # Forward pass
-        if i > 162000:
-            print(X_i)
+        # if i > 162000:
+        #     print(X_i)
         # print(X_i)
         outputs = model(X_i)
         # Compute the loss
