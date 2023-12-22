@@ -16,16 +16,15 @@ X_neural[np.isnan(X_neural)] = 1
 Y_target[np.isnan(Y_target)] = 0
 print("Checking nan in dataset")
 print(np.max(X_neural))
-
-Z = np.zeros((1,X_neural.shape[1]))
+Z = np.array([0.5*X_neural[0,:]])
+print(Z)
 i = 0
 for i in range(X_neural.shape[0]):
-    Z_i = 0.5*Z[i,:] + 0.5*X_neural[i,:]
+    Z_i = 0.5*Z[i,:] + 0.5*X_neural[i+1,:] 
     Z = np.vstack([Z,Z_i])
     if i%1000 == 0:
         print(i)
-    if i < 100:
-        print(Z)
 print("Completed computing auxillary variables")
 print(Z)
+np.save('Z.npy',Z)
 
