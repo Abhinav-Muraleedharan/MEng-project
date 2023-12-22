@@ -29,8 +29,8 @@ print(np.max(X_neural))
 
 
 # Convert data to PyTorch tensors
-X_neural_tensor = torch.tensor(X_neural, dtype=torch.float32)
-Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32)
+X_neural_tensor = torch.tensor(X_neural, dtype=torch.float32).to(device)
+Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32).to(device)
 
 contains_nan = torch.any(torch.isnan(X_neural_tensor))
 contains_nan = torch.any(torch.isnan(Y_target_tensor))
@@ -48,7 +48,7 @@ hidden_layer_sizes = [130, 100,130,50,20,10,5,3]
 dropout_prob = 0.5  #dropout probability
 
 # instantiate model
-model = Neuro_behaviour_model(input_size, hidden_layer_sizes, output_size, dropout_prob)
+model = Neuro_behaviour_model(input_size, hidden_layer_sizes, output_size, dropout_prob).to(device)
 
 #print number of parameters::
 
@@ -65,7 +65,7 @@ print(X_neural.shape[0])
 
 loss_values= []
 for epoch in range(num_epochs):
-    X_i = torch.zeros(1, input_size) 
+    X_i = torch.zeros(1, input_size, device=device) 
     for i in range(X_neural.shape[0]):
         X_i = 0.5*X_neural_tensor[i,:] + 0.5*X_i 
         # Forward pass
