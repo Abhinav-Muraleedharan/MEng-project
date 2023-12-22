@@ -55,7 +55,7 @@ model = Neuro_behaviour_model(input_size, hidden_layer_sizes, output_size, dropo
 num_params = sum(p.numel() for p in model.parameters())
 print(f"Number of parameters in the model: {num_params}")
 
-# Define the loss function and the optimizer
+# Define lodd function and optimizer
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
