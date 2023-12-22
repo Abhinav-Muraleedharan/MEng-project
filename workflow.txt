@@ -1,0 +1,31 @@
+1.make changes locally,
+
+
+2.push to github
+
+
+
+3. load modified code to server
+    3.1 cd path/to/your/repository
+    3.2 git remote -v
+    do: fetch & merge
+    3.3 git fetch origin
+    3.4 git merge origin/main
+    or pull directly 
+    3.5 git pull origin main
+
+
+train in server:
+
+
+
+
+
+
+
+
+
+download latest model to local folder
+
+
+
