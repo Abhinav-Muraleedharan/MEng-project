@@ -7,6 +7,15 @@ import torch.optim as optim
 import numpy as np
 import os 
 from model import Neuro_behaviour_model
+
+
+#cuda
+# Check for GPU #
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+########
+
+
 # process dataset to remove nan s 
 # Load data from npy files
 X_neural = np.load('X_neural.npy')
