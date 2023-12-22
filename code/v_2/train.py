@@ -1,16 +1,24 @@
+# training code with online computation of auxillary variables.
+# batch size of 1
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 import os 
 from model import Neuro_behaviour_model
+# process dataset to remove nan s 
 # Load data from npy files
 X_neural = np.load('X_neural.npy')
 Y_target = np.load('Y_target.npy')
+# replace all nan values by 1 in neural spike observations.
 X_neural[np.isnan(X_neural)] = 1
+# replace all nan values by 0 in observation data.
 Y_target[np.isnan(Y_target)] = 0
 print("Checking nan in dataset")
 print(np.max(X_neural))
+
+
 # Convert data to PyTorch tensors
 X_neural_tensor = torch.tensor(X_neural, dtype=torch.float32)
 Y_target_tensor = torch.tensor(Y_target, dtype=torch.float32)
@@ -45,6 +53,8 @@ optimizer = optim.Adam(model.parameters(), lr=0.0001)
 # Training loop
 num_epochs = 1000
 print(X_neural.shape[0])
+
+loss_values= []
 for epoch in range(num_epochs):
     X_i = torch.zeros(1, input_size) 
     for i in range(X_neural.shape[0]):
@@ -61,12 +71,17 @@ for epoch in range(num_epochs):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        if (i+ 1) % 1000 == 0:
-            print(f'i [{i+1}/{num_epochs}], Loss: {loss.item():.4f}')
+        if (i+ 1) % 10000 == 0:
+            print(f'i [{i+1}/{X_neural.shape[0]}], Loss: {loss.item():.4f}')
         # Print the loss every 100 epochs
     if (epoch + 1) % 100 == 0:
         print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+        loss_values.append(loss.item())
+        torch.save(model.state_dict(), 'trained_model.pth')
          # print(X_i)
-
-# Save the trained model
-torch.save(model.state_dict(), 'trained_model.pth')
+# After training, save the loss values to a file
+with open('training_log.txt', 'w') as file:
+    for loss in loss_values:
+        file.write(f'{loss:.4f}\n')
+# Save the final trained model
+torch.save(model.state_dict(), 'trained_model_final.pth')
