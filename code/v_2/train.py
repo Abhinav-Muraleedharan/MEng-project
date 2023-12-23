@@ -15,11 +15,19 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 ########
 
+# Get the current directory
+current_directory = os.getcwd()
 
-# process dataset to remove nan s 
+# Append the filename to the current directory
+x_neural_path = os.path.join(current_directory, 'X_neural.npy')
+y_target_path = os.path.join(current_directory, 'Y_target.npy')
+
+x_neural_path =  '/Users/abhinavmuraleedharan/MEng_project/MEng-project/code/v_2/X_neural.npy'
+y_target_path =  '/Users/abhinavmuraleedharan/MEng_project/MEng-project/code/v_2/Y_target.npy'
 # Load data from npy files
-X_neural = np.load('X_neural.npy')
-Y_target = np.load('Y_target.npy')
+X_neural = np.load(x_neural_path)
+Y_target = np.load(y_target_path)
+
 # replace all nan values by 1 in neural spike observations.
 X_neural[np.isnan(X_neural)] = 1
 # replace all nan values by 0 in observation data.

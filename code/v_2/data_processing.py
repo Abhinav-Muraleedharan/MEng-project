@@ -4,8 +4,6 @@
 # import necessary libraries
 import numpy as np
 
-
-
 # process dataset to remove nan s 
 # Load data from npy files
 X_neural = np.load('X_neural.npy')
@@ -19,7 +17,7 @@ print(np.max(X_neural))
 Z = np.array([0.5*X_neural[0,:]])
 print(Z)
 i = 0
-for i in range(X_neural.shape[0]):
+for i in range(X_neural.shape[0]-1):
     Z_i = 0.5*Z[i,:] + 0.5*X_neural[i+1,:] 
     Z = np.vstack([Z,Z_i])
     if i%1000 == 0:
