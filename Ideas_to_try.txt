@@ -1,0 +1,18 @@
+1. Vectorize models
+2. Batch processing
+3. Implement Eval Metrics
+4. 
+
+
+
+
+
+
+
+
+
+
+download latest model to local folder
+
+
+

@@ -1,11 +1,12 @@
 \chapter{Introduction}
-This is a text citation~\cite{Knight2021}.
-\lipsum[1]
-This is a test footnote.%
-\footnote{\lipsum[3]}
-\lipsum[2-3]
-This is a test quote.
-\begin{quote}
-  \lipsum[3]
-\end{quote}
-\lipsum[4-5]
+The brain, as a complex dynamical system, governs a diverse range of behaviors and cognitive processes, presenting a fundamental challenge in neuroscience. Unraveling the dynamics of the brain holds the key to understanding the neural mechanisms underlying these processes. Beyond modeling neural activity, elucidating how such activity correlates with an organism's behavior is crucial for developing Brain-Computer Interfaces, clinical treatments for conditions like epilepsy, depression, and other neurodegenerative diseases. \\
+
+
+%%%% give an overall overview of existing approaches
+Machine learning techniques have played a pivotal role in modeling brain dynamics, and modeling the correlation between neural dynamics and behavior of an animal. In \cite{pandarinath2018inferring}, Pandarinath et al. introduced LFADS, an RNN-based method to infer latent dynamics from neural data.  More recently, transformer-based models\cite{vaswani2017attention, geneva2022transformers}, have been applied to learn neural dynamics and behaviour model. In \cite{ye2021representation}, Pandarinath et al applied transformer-based models to learn neural dynamics without an explicit dynamical model. While LFADS and NDT (Neural Data Transformers) were focused on learning neural dynamics from single trial recordings, Azabou et.al recently introduced POYO \cite{azabou2023unified}, a transformer-based model to learn neural dynamics from multi-session neural recordings.
+\\
+
+Although transformer-based models have shown remarkable success in general language modelling tasks and more recently in learning population dynamics of neurons, they exhibit poor scaling properties especially when applied to neural spiking data. Furthermore, unlike text data, neural recording probes sample on the order of kHz, and hence are characterized by high temporal resolution. This unique temporal aspect of neural spiking data presents a challenge for transformers, which are originally designed for sequential data but may struggle with the high-frequency nature of neural signals. The transformer's poor scaling properties become particularly evident when recording from a large number of neurons simultaneously, as the number of potential firing patterns exponentially increases with the number of neurons.
+\\
+
+In this work, we introduce a new class of autoregressive models to overcome limitations imposed by the architecture of attention-based transformer models. Our model has an unbounded context length and hence can capture long-range dependencies in the time series dataset. Furthermore, the complexity of training and inference of the parametrized model is independent of the context length, and hence our approach is computationally more efficient when compared to transformer-based autoregressive models.
