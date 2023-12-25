@@ -1,6 +1,7 @@
 \chapter{Methods}
-\section{Problem Formulation}
+\section{Problem Statement}
 
+This is a text citation~\cite{Knight2021}.
 Imagine we are recording data from $D$ neurons distributed across different regions of the brain. Let $x(t_i) \in \mathbb{R}^D$ denote the observed neural activity at timestep $t_i$ and let $y_i$ denote the observed behaviour of the animal at timestep $t_i$. From the time series dataset $\mathcal{D} = \{(x_i,y_i,t_i) \}_{i=1}^N$ of neural recordings, our goal is to
 construct:
 \begin{itemize}
@@ -29,6 +30,46 @@ Specifically, we assume that that the neural observed neural spiking data at tim
 
 
 \section{Theory}
+
+First, we introduce a convolution operation to construct a random variable $ \zeta_k $ from a sequence of random variables $\{x_i\}_{i=1}^{k- 1}$. Mathematically, we define $ \zeta_k $ as:
+\begin{equation}
+    \zeta_i = \sum_{k=1}^{i-1} 2^{-k} \sigma_{\theta}(x_{i-k}) 
+\end{equation}
+Here, $x_k \in \mathbb{R}^D$ is the observed neural activity at timestep $t_k$, and $\sigma_{\theta}: \mathbb{R}^D \rightarrow \{0,1\}^D $ is a thresholding function, where $\sigma_{\theta}(x_i^{j}) = 1, \forall x_i^{j} > \theta $. (We use the notation $x_i^{j}$ to denote $j$ th element of the vector $x_i$.)
+\\
+
+Now, note that $\zeta_k $ has a recursive property, specifically:
+\begin{equation}
+    \zeta_{i+1} = 2^{-1}\zeta_i +  2^{-1}\sigma_{\theta}(x_i)
+\end{equation}
+Now, we approximate the conditional distribution defined in eq(3) with 
+\begin{equation}
+   \prod_{i=1}^{N} p_d(\{x_{i}\}| \{x_1\},\{x_2\},..\{x_{i-1}\}) 
+   \approx  \prod_{i=1}^{N} p_d(\{x_{i}\}|\zeta_i)
+\end{equation}
+To learn the dynamics of the brain from neural recordings in an unsupervised manner, we maximize the following likelihood:
+\begin{equation}
+    \mathcal{L}(X,\theta) = \sum_i log(p_d(\{x_{i}\}|\zeta_i;\theta))
+\end{equation}
+Here, $X = \{x_1,x_2,....x_M\}$, the dataset of neural recordings. \\
+
+Note that in this approach, the context window is not bounded, and the complexity of learning the parametrized model $p_d(\{x_{i}\}|\zeta_i;\theta)$ is independent of the length of the context window. While training the model, we apply eq(6) to recursively update $\zeta_i$ in an online fashion, instead of pre-computing and storing $\{\zeta_i\}_{i=1}^N$ separately.
+ \\
+
+ To learn the correlation between neural dynamics and behavior, we follow a similar approach and approximate the conditional distribution defined in eq(4) with:
+\\
+ \begin{equation}
+   \prod_{i=1}^{N} p_b(\{y_{i}\}| \{x_1\},\{x_2\},..\{x_{i-1}\}) 
+   \approx  \prod_{i=1}^{N} p_b(\{y_{i}\}|\zeta_i)
+\end{equation}
+We define the loss function associated with this approach as the negative log-likelihood of the observed behavioral outcomes given the estimated neural activity states. Formally, the loss function \( \mathcal{L} \) is expressed as:
+
+\[
+\mathcal{L}(X,Y,\phi) = -\sum_{i} \log p_b(\{y_i\}|\zeta_i;\phi)
+\]
+
+
+
 \section{Model Architecture}
 \section{Data}
 \section{Training}
