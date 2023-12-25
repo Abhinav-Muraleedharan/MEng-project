@@ -1,8 +1,8 @@
 1. Vectorize models
 2. Batch processing
 3. Implement Eval Metrics
-4. 
-
+4. Change loss function 
+5. 
 
 
 

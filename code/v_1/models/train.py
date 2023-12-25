@@ -17,7 +17,7 @@ batch_size = 1
 num_epochs = 10
 # data folder:
 
-data_folder = '/Users/abhinavmuraleedharan/meng_proj/v_1/data/raw_data/binary_image_data'
+data_folder = '/Users/abhinavmuraleedharan/MEng_project/MEng-project/code/v_1/data/raw_data/binary_image_data'
 # Create U-Net model, loss function, and optimizer
 #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 device = torch.device("mps")

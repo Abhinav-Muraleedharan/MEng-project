@@ -8,13 +8,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Theory}{3}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Approach}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Model Architecture}{3}{section.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.4}Data}{3}{section.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.1}Data Collection}{4}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Training}{3}{section.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Model}{4}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Data Collection}{4}{subsection.2.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.6}Model}{4}{section.2.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.7}Conclusion}{4}{section.2.7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Results}{7}{chapter.3}%
 \defcounter {refsection}{0}\relax 
