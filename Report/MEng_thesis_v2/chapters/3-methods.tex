@@ -1,0 +1,56 @@
+% Note that depending on your settings in the table of contents, subsections and subsubsections might appear virtually identical.
+% Make sure to set the ToC depth and the numbering depth in the ToC the way you want.
+\chapter{Methods}\label{ch:methods}
+\section{Motivation}
+For modelling sequences, we are faced with three challenges. First, the length of the sequence is not fixed. Second, a machine learning model for modelling sequences should be capable of modelling long range dependencies. Third, for discrete problems, the sequences we cannot model these using odes. 
+\section{Retention}
+Mathematically, retention is defined as an exponentially weighted sum of a sequence of discrete vectors. If the vectors are drawn from a continuous space, then we perform thresholding operation to discretize the vectors. 
+Specifically, given a sequence of vectors $\{x_i\}_{i=1}^N$, $x_i \in \mathbb{R}^d$ , Retention variable $ \zeta_k $ as:
+\begin{equation}
+    \zeta_i = \sum_{k=1}^{i-1} 2^{-k} \sigma_{\theta}(x_{i-k}) 
+\end{equation}
+Here, $x_k \in \mathbb{R}^D$ is the observed neural activity at timestep $t_k$, and $\sigma_{\theta}: \mathbb{R}^D \rightarrow \{0,1,2,,M\}^D $ is a thresholding function, where $\sigma_{\theta}(x_i^{j}) = 1, \forall x_i^{j} > \theta $. (We use the notation $x_i^{j}$ to denote $j$ th element of the vector $x_i$.)
+\\
+
+Now, note that $\zeta_k $ has a recursive property, specifically:
+\begin{equation}
+    \zeta_{i+1} = 2^{-1}\zeta_i +  2^{-1}\sigma_{\theta}(x_i)
+\end{equation}
+\subsection{Modelling Conditional Distributions with Retention Variables}
+Now, we approximate the conditional distribution defined in eq(3) with 
+\begin{equation}
+   \prod_{i=1}^{N} p_d(\{x_{i}\}| \{x_1\},\{x_2\},..\{x_{i-1}\}) 
+   \approx  \prod_{i=1}^{N} p_d(\{x_{i}\}|\zeta_i)
+\end{equation}
+To learn the dynamics of the brain from neural recordings in an unsupervised manner, we maximize the following likelihood:
+\begin{equation}
+    \mathcal{L}(X,\theta) = \sum_i log(p_d(\{x_{i}\}|\zeta_i;\theta))
+\end{equation}
+Here, $X = \{x_1,x_2,....x_M\}$, the dataset of neural recordings. \\
+
+Note that in this approach, the context window is not bounded, and the complexity of learning the parametrized model $p_d(\{x_{i}\}|\zeta_i;\theta)$ is independent of the length of the context window. While training the model, we apply eq(6) to recursively update $\zeta_i$ in an online fashion, instead of pre-computing and storing $\{\zeta_i\}_{i=1}^N$ separately.
+ \\
+
+ To learn the correlation between neural dynamics and behavior, we follow a similar approach and approximate the conditional distribution defined in eq(4) with:
+\\
+ \begin{equation}
+   \prod_{i=1}^{N} p_b(\{y_{i}\}| \{x_1\},\{x_2\},..\{x_{i-1}\}) 
+   \approx  \prod_{i=1}^{N} p_b(\{y_{i}\}|\zeta_i)
+\end{equation}
+We define the loss function associated with this approach as the negative log-likelihood of the observed behavioral outcomes given the estimated neural activity states. Formally, the loss function \( \mathcal{L} \) is expressed as:
+
+\[
+\mathcal{L}(X,Y,\phi) = -\sum_{i} \log p_b(\{y_i\}|\zeta_i;\phi)
+\]
+
+\section{Training Retention Based Models}
+In this section, we describe how retention based models are trained. 
+\subsection{Online Computation of Retention Variable}
+
+\subsection{Offline Computation of Retention Variable}
+
+
+
+\section{Architecture}
+\subsection{Two Photon Dataset: U-Net}
+\subsection{Fully connected networks}

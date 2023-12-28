@@ -1,7 +1,7 @@
 \chapter{Methods}
 \section{Problem Statement}
 
-This is a text citation~\cite{Knight2021}.
+This is a text citation~\cite{Knight2021}. Prediction & Transduction. 
 Imagine we are recording data from $D$ neurons distributed across different regions of the brain. Let $x(t_i) \in \mathbb{R}^D$ denote the observed neural activity at timestep $t_i$ and let $y_i$ denote the observed behaviour of the animal at timestep $t_i$. From the time series dataset $\mathcal{D} = \{(x_i,y_i,t_i) \}_{i=1}^N$ of neural recordings, our goal is to
 construct:
 \begin{itemize}
@@ -31,17 +31,20 @@ Specifically, we assume that that the neural observed neural spiking data at tim
 
 \section{Theory}
 
-First, we introduce a convolution operation to construct a random variable $ \zeta_k $ from a sequence of random variables $\{x_i\}_{i=1}^{k- 1}$. Mathematically, we define $ \zeta_k $ as:
+\subsection{Retention}
+Mathematically, retention is defined as an exponentially weighted sum of a sequence of discrete vectors. If the vectors are drawn from a continuous space, then we perform thresholding operation to discretize the vectors. 
+Specifically, given a sequence of vectors $\{x_i\}_{i=1}^N$, $x_i \in \mathbb{R}^d$ , Retention variable $ \zeta_k $ as:
 \begin{equation}
     \zeta_i = \sum_{k=1}^{i-1} 2^{-k} \sigma_{\theta}(x_{i-k}) 
 \end{equation}
-Here, $x_k \in \mathbb{R}^D$ is the observed neural activity at timestep $t_k$, and $\sigma_{\theta}: \mathbb{R}^D \rightarrow \{0,1\}^D $ is a thresholding function, where $\sigma_{\theta}(x_i^{j}) = 1, \forall x_i^{j} > \theta $. (We use the notation $x_i^{j}$ to denote $j$ th element of the vector $x_i$.)
+Here, $x_k \in \mathbb{R}^D$ is the observed neural activity at timestep $t_k$, and $\sigma_{\theta}: \mathbb{R}^D \rightarrow \{0,1,2,,M\}^D $ is a thresholding function, where $\sigma_{\theta}(x_i^{j}) = 1, \forall x_i^{j} > \theta $. (We use the notation $x_i^{j}$ to denote $j$ th element of the vector $x_i$.)
 \\
 
 Now, note that $\zeta_k $ has a recursive property, specifically:
 \begin{equation}
     \zeta_{i+1} = 2^{-1}\zeta_i +  2^{-1}\sigma_{\theta}(x_i)
 \end{equation}
+\subsection{Modelling Conditional Distributions with Retention Variables}
 Now, we approximate the conditional distribution defined in eq(3) with 
 \begin{equation}
    \prod_{i=1}^{N} p_d(\{x_{i}\}| \{x_1\},\{x_2\},..\{x_{i-1}\}) 

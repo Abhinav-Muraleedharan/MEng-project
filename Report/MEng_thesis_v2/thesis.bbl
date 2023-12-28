@@ -1,0 +1,51 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{AAG{\etalchar{+}}23}
+
+\bibitem[AAG{\etalchar{+}}23]{azabou2023unified}
+Mehdi Azabou, Vinam Arora, Venkataramana Ganesh, Ximeng Mao, Santosh
+  Nachimuthu, Michael~J Mendelson, Blake Richards, Matthew~G Perich, Guillaume
+  Lajoie, and Eva~L Dyer, \emph{A unified, scalable framework for neural
+  population decoding}, arXiv preprint arXiv:2310.16046 (2023).
+
+\bibitem[Gau27]{gauss}
+Carl~Friedrich Gau\ss, \emph{General investigations of curved surfaces}, 1827.
+
+\bibitem[GZ22]{geneva2022transformers}
+Nicholas Geneva and Nicholas Zabaras, \emph{Transformers for modeling physical
+  systems}, Neural Networks \textbf{146} (2022), 272--289.
+
+\bibitem[Hah20]{hahn2020theoretical}
+Michael Hahn, \emph{Theoretical limitations of self-attention in neural
+  sequence models}, Transactions of the Association for Computational
+  Linguistics \textbf{8} (2020), 156--171.
+
+\bibitem[POC{\etalchar{+}}18]{pandarinath2018inferring}
+Chethan Pandarinath, Daniel~J O’Shea, Jasmine Collins, Rafal Jozefowicz,
+  Sergey~D Stavisky, Jonathan~C Kao, Eric~M Trautmann, Matthew~T Kaufman,
+  Stephen~I Ryu, Leigh~R Hochberg, et~al., \emph{Inferring single-trial neural
+  population dynamics using sequential auto-encoders}, Nature methods
+  \textbf{15} (2018), no.~10, 805--815.
+
+\bibitem[RNS{\etalchar{+}}18]{radford2018improving}
+Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever, et~al.,
+  \emph{Improving language understanding by generative pre-training}.
+
+\bibitem[VSP{\etalchar{+}}17]{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, {\L}ukasz Kaiser, and Illia Polosukhin, \emph{Attention is all
+  you need}, Advances in neural information processing systems \textbf{30}
+  (2017).
+
+\bibitem[YP21]{ye2021representation}
+Joel Ye and Chethan Pandarinath, \emph{Representation learning for neural
+  population activity with neural data transformers}, arXiv preprint
+  arXiv:2108.01210 (2021).
+
+\end{thebibliography}
