@@ -27,6 +27,25 @@ on [Carvana dataset](carvana.html).
 import torch
 import torchvision.transforms.functional
 from torch import nn
+import numpy as np 
+
+
+def center_crop_tensor(img_tensor, target_height, target_width):
+    """
+    Center crops a tensor image.
+    Args:
+    - img_tensor (Tensor): The image tensor to be cropped. Shape: [C, H, W]
+    - target_height (int): The target height.
+    - target_width (int): The target width.
+
+    Returns:
+    - Tensor: The center cropped image tensor.
+    """
+    _, h, w = img_tensor.shape
+    top = (h - target_height) // 2
+    left = (w - target_width) // 2
+    return img_tensor[:, top:top + target_height, left:left + target_width]
+
 
 
 class DoubleConvolution(nn.Module):
@@ -110,7 +129,8 @@ class CropAndConcat(nn.Module):
         """
 
         # Crop the feature map from the contracting path to the size of the current feature map
-        contracting_x = torchvision.transforms.functional.center_crop(contracting_x, [x.shape[2], x.shape[3]])
+        #contracting_x = torchvision.transforms.functional.center_crop(contracting_x, [x.shape[2], x.shape[3]])
+        contracting_x = x
         # Concatenate the feature maps
         x = torch.cat([x, contracting_x], dim=1)
         #
