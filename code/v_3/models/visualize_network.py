@@ -10,7 +10,7 @@ from torchviz import make_dot
 
 # Function to load the trained model
 def load_model(model_path):
-    model = UNet(in_channels=1, out_channels=1)  # Make sure to replace UNet() with the actual definition of your U-Net model
+    model = UNet(n_channels=1, n_classes=1)  # Make sure to replace UNet() with the actual definition of your U-Net model
     # checkpoint = torch.load(model_path)
     # model.load_state_dict(checkpoint)
     # model.eval()
@@ -21,15 +21,16 @@ def inference(model, image_path,threshold):
     # Load and preprocess the image
     image = Image.open(image_path).convert('L')  # 'L' mode is for grayscale
     transform = transforms.Compose([
-        transforms.Resize((64, 64)),  # Resize the image to (256, 256)
+        transforms.Resize((256, 256)),  # Resize the image to (256, 256)
         transforms.ToTensor()  # Convert the image to a PyTorch tensor
     ])
     image = transform(image)
-    input_image = image.view(1,1,64,64) # Add batch dimension
+    input_image = image.view(1,1,256,256) # Add batch dimension
 
     # Run inference
     
     output = model(input_image)
+    print("Shape of output", output.shape)
     # Visualize the graph
     dot = make_dot(output, params=dict(list(model.named_parameters())))
     dot.render('model_graph', format='png')  # Saves the graph as a PNG image
@@ -40,7 +41,7 @@ def inference(model, image_path,threshold):
 
 if __name__ == "__main__":
     # Replace 'path/to/checkpoint.pth' with the actual path to your checkpoint file
-    model_path = 'checkpoint_epoch4.pth'
+    model_path = 'checkpoint_epoch1.pth'
     model = load_model(model_path)
 
     # Replace 'path/to/new/image.jpg' with the path to your new image

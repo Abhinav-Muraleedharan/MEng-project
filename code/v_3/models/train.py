@@ -21,7 +21,7 @@ data_folder = '/Users/abhinavmuraleedharan/MEng_project/MEng-project/code/v_1/da
 # Create U-Net model, loss function, and optimizer
 #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 device = torch.device("mps")
-model = UNet(in_channels=1, out_channels=1).to(device)
+model = UNet(n_channels=1, n_classes=1).to(device)
 criterion = nn.BCEWithLogitsLoss()  # Binary Cross-Entropy loss for binary segmentation
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
@@ -76,8 +76,8 @@ for epoch in range(num_epochs):
         # Print statistics every 10 batches
         if i % 100 == 0:
             print(f"Epoch {epoch + 1}/{num_epochs}, Image: {i}, Loss: {running_loss / 100:.4f}")
-            train_losses.append(running_loss/100)
-            running_loss = 0.0
+        train_losses.append(running_loss/100)
+        running_loss = 0.0   
                     
         # save model when at every 2000 th i
         if i%2000 == 0:

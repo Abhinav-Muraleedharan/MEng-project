@@ -18,7 +18,7 @@ node_modules/
 *.pt
 *.h5
 *.ckpt
-
+*.pyc
 # Ignore environment-specific files
 .env
 
