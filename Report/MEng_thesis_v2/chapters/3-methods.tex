@@ -1,8 +1,13 @@
 % Note that depending on your settings in the table of contents, subsections and subsubsections might appear virtually identical.
 % Make sure to set the ToC depth and the numbering depth in the ToC the way you want.
 \chapter{Methods}\label{ch:methods}
+In this chapter, we describe the theory behind Retention based autoregressive models and methods for training retention based models. 
 \section{Motivation}
-For modelling sequences, we are faced with three challenges. First, the length of the sequence is not fixed. Second, a machine learning model for modelling sequences should be capable of modelling long range dependencies. Third, for discrete problems, the sequences we cannot model these using odes. 
+
+To model conditional distributions defined in eq(2.4) exactly, we require a method that can process sequences of variable input size. In typical autoregressive models, the context window
+
+
+For modelling sequences, we are faced with three challenges. First, the length of the sequence is not fixed. Second, a machine learning model for modelling sequences should be capable of modelling long range dependencies. In the context of neural data, the patterns of spiking activity grows exponentially with respect to the number of neurons. 
 \section{Retention}
 Mathematically, retention is defined as an exponentially weighted sum of a sequence of discrete vectors. If the vectors are drawn from a continuous space, then we perform thresholding operation to discretize the vectors. 
 Specifically, given a sequence of vectors $\{x_i\}_{i=1}^N$, $x_i \in \mathbb{R}^d$ , Retention variable $ \zeta_k $ as:

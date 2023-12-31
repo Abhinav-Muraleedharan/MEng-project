@@ -6,29 +6,29 @@
 \contentsline {chapter}{\numberline {3}{Methods}}{5}{chapter.3}%
 \contentsline {section}{\numberline {3.1}{Motivation}}{5}{section.3.1}%
 \contentsline {section}{\numberline {3.2}{Retention}}{5}{section.3.2}%
-\contentsline {subsection}{{Modelling Conditional Distributions with Retention Variables}}{5}{subsection*.2}%
+\contentsline {subsection}{{Modelling Conditional Distributions with Retention Variables}}{6}{subsection*.2}%
 \contentsline {section}{\numberline {3.3}{Training Retention Based Models}}{6}{section.3.3}%
-\contentsline {subsection}{{Online Computation of Retention Variable}}{6}{subsection*.3}%
-\contentsline {subsection}{{Offline Computation of Retention Variable}}{6}{subsection*.4}%
-\contentsline {section}{\numberline {3.4}{Architecture}}{6}{section.3.4}%
-\contentsline {subsection}{{Two Photon Dataset: U-Net}}{6}{subsection*.5}%
-\contentsline {subsection}{{Fully connected networks}}{6}{subsection*.6}%
-\contentsline {chapter}{\numberline {4}{Results}}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}{A New Section}}{7}{section.4.1}%
-\contentsline {subsection}{{Test for a Subsection}}{7}{subsection*.7}%
-\contentsline {subsection}{{Autem Timeam}}{7}{subsection*.8}%
-\contentsline {section}{\numberline {4.2}{Another Section in This Chapter}}{8}{section.4.2}%
-\contentsline {subsection}{{Personas Initialmente}}{8}{subsection*.9}%
-\contentsline {subsubsection}{{A Subsubsection}}{8}{subsubsection*.10}%
-\contentsline {paragraph}{{A Paragraph Example}}{8}{paragraph*.11}%
-\contentsline {section}{\numberline {4.3}{Some Math}}{9}{section.4.3}%
-\contentsline {chapter}{\numberline {5}{Conclusion}}{10}{chapter.5}%
-\contentsline {section}{\numberline {5.1}{A New Section}}{10}{section.5.1}%
-\contentsline {subsection}{{Test for a Subsection}}{10}{subsection*.13}%
-\contentsline {subsection}{{Autem Timeam}}{10}{subsection*.14}%
-\contentsline {section}{\numberline {5.2}{Another Section in This Chapter}}{11}{section.5.2}%
-\contentsline {subsection}{{Personas Initialmente}}{11}{subsection*.15}%
-\contentsline {subsubsection}{{A Subsubsection}}{11}{subsubsection*.16}%
-\contentsline {paragraph}{{A Paragraph Example}}{11}{paragraph*.17}%
-\contentsline {section}{\numberline {5.3}{Some Math}}{12}{section.5.3}%
+\contentsline {subsection}{{Online Computation of Retention Variable}}{7}{subsection*.3}%
+\contentsline {subsection}{{Offline Computation of Retention Variable}}{7}{subsection*.4}%
+\contentsline {section}{\numberline {3.4}{Architecture}}{7}{section.3.4}%
+\contentsline {subsection}{{Two Photon Dataset: U-Net}}{7}{subsection*.5}%
+\contentsline {subsection}{{Fully connected networks}}{7}{subsection*.6}%
+\contentsline {chapter}{\numberline {4}{Results}}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}{A New Section}}{8}{section.4.1}%
+\contentsline {subsection}{{Test for a Subsection}}{8}{subsection*.7}%
+\contentsline {subsection}{{Autem Timeam}}{8}{subsection*.8}%
+\contentsline {section}{\numberline {4.2}{Another Section in This Chapter}}{9}{section.4.2}%
+\contentsline {subsection}{{Personas Initialmente}}{9}{subsection*.9}%
+\contentsline {subsubsection}{{A Subsubsection}}{9}{subsubsection*.10}%
+\contentsline {paragraph}{{A Paragraph Example}}{9}{paragraph*.11}%
+\contentsline {section}{\numberline {4.3}{Some Math}}{10}{section.4.3}%
+\contentsline {chapter}{\numberline {5}{Conclusion}}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}{A New Section}}{11}{section.5.1}%
+\contentsline {subsection}{{Test for a Subsection}}{11}{subsection*.13}%
+\contentsline {subsection}{{Autem Timeam}}{11}{subsection*.14}%
+\contentsline {section}{\numberline {5.2}{Another Section in This Chapter}}{12}{section.5.2}%
+\contentsline {subsection}{{Personas Initialmente}}{12}{subsection*.15}%
+\contentsline {subsubsection}{{A Subsubsection}}{12}{subsubsection*.16}%
+\contentsline {paragraph}{{A Paragraph Example}}{12}{paragraph*.17}%
+\contentsline {section}{\numberline {5.3}{Some Math}}{13}{section.5.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
