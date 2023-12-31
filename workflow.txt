@@ -16,6 +16,7 @@
 
     3.6 copy dataset
     3.7 schedule training job 
+    resource: https://www.youtube.com/watch?v=QbQSkXj0FtU&v=watch&feature=youtu.be
         3.7.1 cd$ SCRATCH
         3.7.2 ls 
         3.7.3  vim submit.slurm

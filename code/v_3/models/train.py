@@ -86,7 +86,7 @@ for epoch in range(num_epochs):
             checkpoint_path = f'checkpoint_epoch{epoch + 1}.pth'
             torch.save(model.state_dict(), checkpoint_path)
             losses_str = json.dumps(train_losses, indent=4)
-            with open('training_log.txt', 'a') as file:
+            with open('training_log.txt', 'w') as file:
                 file.write(losses_str)
             
        
