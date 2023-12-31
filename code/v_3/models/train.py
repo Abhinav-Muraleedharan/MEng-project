@@ -8,7 +8,7 @@ from torchvision.transforms import ToTensor
 from u_net import UNet
 from PIL import Image
 from torchvision import transforms
-
+import json 
 # Define U-Net architecture (same as before)
 
 # Hyperparameters
@@ -34,7 +34,7 @@ def load_image(i):
     # Open the image and convert it to grayscale and then to a PyTorch tensor
         image = Image.open(image_filename).convert('L')  # 'L' mode is for grayscale
         transform = transforms.Compose([
-        transforms.Resize((64, 64)),  # Resize the image to (256, 256)
+        transforms.Resize((64, 64)),  # Resize the image if required
         transforms.ToTensor()  # Convert the image to a PyTorch tensor
         ])
         image = transform(image)
@@ -76,17 +76,18 @@ for epoch in range(num_epochs):
         # Print statistics every 10 batches
         if i % 100 == 0:
             print(f"Epoch {epoch + 1}/{num_epochs}, Image: {i}, Loss: {running_loss / 100:.4f}")
-        train_losses.append(running_loss/100)
+        # train_losses.append(running_loss/100)
+        train_losses.append({'epoch': epoch, 'i': i, 'training_loss': loss.item()})
         running_loss = 0.0   
                     
         # save model when at every 2000 th i
-        if i%2000 == 0:
+        if i%1000 == 0:
             print("Saving Checkpoint:")
             checkpoint_path = f'checkpoint_epoch{epoch + 1}.pth'
             torch.save(model.state_dict(), checkpoint_path)
+            losses_str = json.dumps(train_losses, indent=4)
             with open('training_log.txt', 'a') as file:
-                for loss in train_losses:
-                    file.write(f'{loss}\n')
+                file.write(losses_str)
             
        
 

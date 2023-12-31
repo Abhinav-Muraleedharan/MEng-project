@@ -17,7 +17,7 @@ class Retention_data_loader(Dataset):
         return(len(self.folder1_files ))
     
     def __getitem__(self,index):
-        print("Index:",index)
+        # print("Index:",index)
         for i in range(index):
             #load image_1
             img_path = os.path.join(self.folder_1,self.folder1_files[i])
