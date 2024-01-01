@@ -68,7 +68,7 @@ criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 # Training loop
-num_epochs = 1000
+num_epochs = 50
 print(X_neural.shape[0])
 
 loss_values= []

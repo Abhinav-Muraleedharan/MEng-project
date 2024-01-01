@@ -4,29 +4,40 @@
 In this chapter, we describe the theory behind Retention based autoregressive models and methods for training retention based models. 
 \section{Motivation}
 
-To model conditional distributions defined in eq(2.4) exactly, we require a method that can process sequences of variable input size. In typical autoregressive models, the context window
+To model conditional distributions defined in eq(2.4) exactly, we require a method that can process sequences of variable input length. In the realm of neural spiking data, which is frequently recorded at a sampling rate expressed in kHz, we require a method that can efficiently scale with the length of the sequence Furthermore, the patterns of neural activity increase exponentially with respect to the number of neurons, and hence the number of discrete tokens required to represent neural spike pattern at time step $t$ can be prohibitively large. For instance, if we are recording spike signals from $100$ neurons, in total there are $2^{100}$ possible firing patterns. Existing Transformer based models cannot be directly applied to model conditional distributions of these kind, without placing an assumption on the nature of probability distribution. \\
 
+To address these challenges, we introduce "Retention", a mathematical operation to map a sequence of vectors $\{x_i\}_{i=1}^N$ to real valued vector $\zeta_i$ of same dimension. Retention is inspired from Score-life programming \cite{muraleedharan2023beyond}, a novel method to solve sequential decision making problems. In Score-life programming \cite{muraleedharan2023beyond}, Muraleedharan et.al applied the insight that the binary expansion of a real number can be used to represent a sequence of discrete variables. After constructing the mapping between a sequence of discrete variables and real numbers in a bounded interval, functions can be directly defined on the real numbers. By defining functions using this approach, we can model non-trivial relationships between elements of a sequence. In prior work \cite{muraleedharan2023beyond}, has showed that such functions have unique properties, which can be exploited in developing efficient methods for solving determinsitic reinforcement learning problems. In our work, we extend this insight to vector valued variables, which are typically encountered in deep learning settings. 
 
-For modelling sequences, we are faced with three challenges. First, the length of the sequence is not fixed. Second, a machine learning model for modelling sequences should be capable of modelling long range dependencies. In the context of neural data, the patterns of spiking activity grows exponentially with respect to the number of neurons. 
 \section{Retention}
 Mathematically, retention is defined as an exponentially weighted sum of a sequence of discrete vectors. If the vectors are drawn from a continuous space, then we perform thresholding operation to discretize the vectors. 
-Specifically, given a sequence of vectors $\{x_i\}_{i=1}^N$, $x_i \in \mathbb{R}^d$ , Retention variable $ \zeta_k $ as:
-\begin{equation}
-    \zeta_i = \sum_{k=1}^{i-1} 2^{-k} \sigma_{\theta}(x_{i-k}) 
-\end{equation}
-Here, $x_k \in \mathbb{R}^D$ is the observed neural activity at timestep $t_k$, and $\sigma_{\theta}: \mathbb{R}^D \rightarrow \{0,1,2,,M\}^D $ is a thresholding function, where $\sigma_{\theta}(x_i^{j}) = 1, \forall x_i^{j} > \theta $. (We use the notation $x_i^{j}$ to denote $j$ th element of the vector $x_i$.)
-\\
+Specifically, given a sequence of vectors $\{x_i\}_{i=1}^N$, $x_i \in \mathbb{R}^d$ , Retention variable $ \zeta_k \in [0,1)^d$ as:
 
-Now, note that $\zeta_k $ has a recursive property, specifically:
 \begin{equation}
-    \zeta_{i+1} = 2^{-1}\zeta_i +  2^{-1}\sigma_{\theta}(x_i)
+    \zeta_k = \sum_{j=1}^{k} 2^{- (\log M)j} \sum_{i=0}^{M-1} \sigma(w_i \otimes x_{k-j+1} + b_i)
 \end{equation}
+
+
+Here, $w_i, b_i \in \mathbb{R}^d$ are trainable parameters for the thresholding operation defined in inner summation. Given a vector $x_i \in \mathbb{R}^d$ as input, the inner summation operation acts like a smoothened step function, essentially discretizing elements of the vector to discrete values in the set: $\{0,1,2,,,M-1\}$. The outer summation operation, with an exponentially decaying factor maps the sequence of discrete vectors to a continuous real valued vector $\zeta_k$. If the input data is discrete, or binary as in the case of neural spike signals, then the thresholding operation can be omitted, and the retention variable can be defined as: 
+\begin{equation}
+    \zeta_i = \sum_{k=1}^{i-1} 2^{-k} (x_{i-k}) 
+\end{equation}
+Given a sequence of discrete vectors $\{x_i\}_{i=1}^N$, retention variable $\zeta_i$ stores the discrete vectors in the binary expansion of $\zeta_i$. If the vectors  $\{x_i\}_{i=1}^N$ are continuous, then we perform a thresholding operation first to discretize the vectors and perform discounted sum of these discretized vectors. \\
+
+Retention can also be defined for sequence of matrices $\{\mathbf{X}_i\}_{i=1}^N$ as:
+
+\begin{equation}
+    \mathbf{\zeta}_k = \sum_{j=1}^{k} 2^{- (\log M)j} \sum_{i=0}^{M-1} \sigma(\mathbf{W}_i \otimes \mathbf{X}_{k-j+1} + \mathbf{B}_i)
+\end{equation}
+
 \subsection{Modelling Conditional Distributions with Retention Variables}
-Now, we approximate the conditional distribution defined in eq(3) with 
+Now, we approximate the conditional distribution defined in eq(3) with retention. Specifically, the product of conditional distributions can now be approximated as:
 \begin{equation}
    \prod_{i=1}^{N} p_d(\{x_{i}\}| \{x_1\},\{x_2\},..\{x_{i-1}\}) 
    \approx  \prod_{i=1}^{N} p_d(\{x_{i}\}|\zeta_i)
 \end{equation}
+In this case, we 
+
+
 To learn the dynamics of the brain from neural recordings in an unsupervised manner, we maximize the following likelihood:
 \begin{equation}
     \mathcal{L}(X,\theta) = \sum_i log(p_d(\{x_{i}\}|\zeta_i;\theta))

@@ -32,6 +32,7 @@
             python ~/final/MEng-project/code/v_2/train.py
         3.7.5 sbatch submit.slurm
     
+    squeue --me
           
     3.8 enjoy! 
 train in server:

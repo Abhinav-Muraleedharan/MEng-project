@@ -18,50 +18,51 @@ A level-1 auxiliary file: frontbackmatter/colophon.aux
 Database file #1: thesis.bib
 Warning--missing pages in azabou2023unified
 Warning--missing publisher in gauss
+Warning--missing pages in muraleedharan2023beyond
 Warning--missing journal name in radford2018improving
 Warning--missing journal, volume, and year in radford2018improving
 Warning--missing pages in radford2018improving
 Warning--missing pages in vaswani2017attention
 Warning--missing pages in ye2021representation
-You've used 8 entries,
+You've used 9 entries,
             2624 wiz_defined-function locations,
-            618 strings with 6487 characters,
-and the built_in function-call counts, 3601 in all, are:
-= -- 296
-> -- 264
-< -- 2
-+ -- 97
-- -- 96
-* -- 351
-:= -- 633
-add.period$ -- 8
-call.type$ -- 8
-change.case$ -- 70
-chr.to.int$ -- 8
-cite$ -- 15
-duplicate$ -- 115
-empty$ -- 211
-format.name$ -- 102
-if$ -- 667
+            622 strings with 6589 characters,
+and the built_in function-call counts, 3867 in all, are:
+= -- 318
+> -- 272
+< -- 3
++ -- 99
+- -- 98
+* -- 372
+:= -- 676
+add.period$ -- 9
+call.type$ -- 9
+change.case$ -- 75
+chr.to.int$ -- 9
+cite$ -- 17
+duplicate$ -- 130
+empty$ -- 234
+format.name$ -- 106
+if$ -- 719
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 17
-newline$ -- 35
-num.names$ -- 24
-pop$ -- 80
+missing$ -- 19
+newline$ -- 38
+num.names$ -- 27
+pop$ -- 87
 preamble$ -- 1
-purify$ -- 78
+purify$ -- 84
 quote$ -- 0
-skip$ -- 78
+skip$ -- 88
 stack$ -- 0
-substring$ -- 132
-swap$ -- 15
-text.length$ -- 2
-text.prefix$ -- 2
+substring$ -- 139
+swap$ -- 17
+text.length$ -- 3
+text.prefix$ -- 3
 top$ -- 0
-type$ -- 60
-warning$ -- 7
-while$ -- 28
-width$ -- 13
-write$ -- 85
-(There were 7 warnings)
+type$ -- 68
+warning$ -- 8
+while$ -- 30
+width$ -- 14
+write$ -- 94
+(There were 8 warnings)

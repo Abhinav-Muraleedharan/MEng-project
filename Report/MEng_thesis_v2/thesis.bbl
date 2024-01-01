@@ -26,6 +26,10 @@ Michael Hahn, \emph{Theoretical limitations of self-attention in neural
   sequence models}, Transactions of the Association for Computational
   Linguistics \textbf{8} (2020), 156--171.
 
+\bibitem[Mur23]{muraleedharan2023beyond}
+Abhinav Muraleedharan, \emph{Beyond dynamic programming}, arXiv preprint
+  arXiv:2306.15029 (2023).
+
 \bibitem[POC{\etalchar{+}}18]{pandarinath2018inferring}
 Chethan Pandarinath, Daniel~J O’Shea, Jasmine Collins, Rafal Jozefowicz,
   Sergey~D Stavisky, Jonathan~C Kao, Eric~M Trautmann, Matthew~T Kaufman,
