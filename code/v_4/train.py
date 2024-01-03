@@ -14,13 +14,15 @@ import json
 #cuda
 # Check for GPU #
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device("mps")
 print(f"Using device: {device}")
 ########
 
 #load UNet model ####
 
 u_net_model = UNet(n_channels=1,n_classes=1)
-u_net_model.load_state_dict(torch.load('checkpoint_epoch1.pth'))
+u_net_model.load_state_dict(torch.load('U_Net.pth', map_location=torch.device('cpu')))
+# u_net_model = torch.load('U_Net.pth', map_location=torch.device('cpu'))
 fc_layers = [64*64, 512,512,512,256, 128,64,32,16,8]  # Example sizes, adjust as needed
 output_size = 3  ###
 
