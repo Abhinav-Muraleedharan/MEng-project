@@ -5,6 +5,8 @@ from torchvision import transforms
 from PIL import Image
 import numpy as np
 from u_net import UNet 
+import time
+
 
 # Function to load the trained model
 def load_model(model_path):
@@ -57,7 +59,9 @@ if __name__ == "__main__":
     image = transform(image)
     x_i = image.view(1,1,64,64) # Add batch dimension
     z_i = torch.zeros(1,1,64,64)
-    for i in range(1000):
+    # Record the start time
+    start_time = time.time()
+    for i in range(5000):
         z_i = 0.5*x_i + 0.5*z_i
         y_image = inference(model,z_i,threshold = 120)
         filename = f'/Users/abhinavmuraleedharan/MEng_project/MEng-project/code/v_3/generated_images/output_image{i}.png'
@@ -65,6 +69,11 @@ if __name__ == "__main__":
         z_image = transform(y_image)
         z_i = z_image.view(1,1,64,64)
 
+    end_time = time.time()
+    # Calculate the elapsed time
+    elapsed_time = end_time - start_time
+    # Print the result
+    print(f"Elapsed time: {elapsed_time} seconds")
 
     # Replace 'path/to/new/image.jpg' with the path to your new image
     

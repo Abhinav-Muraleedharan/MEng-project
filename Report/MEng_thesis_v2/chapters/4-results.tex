@@ -16,6 +16,13 @@ The model demonstrated significant proficiency in capturing the dynamics of neur
 
 Visual inspection of the generated spike patterns revealed a high degree of similarity to the actual recorded data. Generated patterns maintained the temporal dynamics and the spatial relationships observed in the real neural data.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/neuropixel_generation.png}  
+    \caption{samples from generative model}
+    \label{fig:your_label}  % You can use this label to refer to the figure in the text
+  \end{figure}
+
 \subsection{Scalability}
 
-The model's performance remained stable even as the length of the input sequences increased, showcasing its capability to handle long sequence lengths efficiently, a key advantage over traditional sequence models.
+The model's performance remained stable even as the length of the input sequences increased, showcasing its capability to handle long sequence lengths efficiently, a key advantage over traditional sequence models. Examining the scalability of the model reveals its consistent performance across varying sequence lengths, a marked improvement over traditional sequence-based models. The model demonstrated this robustness in a practical experiment, generating 5000 images representing neuro pixel data in just 3.5 minutes. Notably, it maintained a constant inference time, regardless of the sequence length, showcasing its efficiency in handling extended sequences. Executed on a MacBook Air M1, these results emphasize the model's effective operation on standard commercial hardware, indicating its potential for scalable applications in processing extensive neural datasets.
