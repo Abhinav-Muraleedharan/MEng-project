@@ -99,17 +99,35 @@ For instance, if we are interested in modelling the dynamics of human motor cort
 
 \section{Training Retention Based Models}
 
+In this section, we describe how retention based models are trained. Retention variables at different timesteps $k$ are related to each other by a recursive relationship, which can be utilized for developing efficient training algorithms. 
 
+\subsection{Recursive relationship between Retention Variables}
+
+Retention variable at any time-step $k$ is given by:
+
+\begin{equation}
+    \zeta_k = 2^{- (\log M)} \sum_{i=0}^{M-1} \sigma(w_i \otimes x_{k} + b_i)  + 2^{- (\log M)}\zeta_{k-1}
+\end{equation}
+If the variables $x_k$ are discrete vectors, then the thresholding layer can be omitted and the relation simplifies to:
+\begin{equation}
+    \zeta_k = 2^{- 1} x_k  + 2^{- 1}\zeta_{k-1}
+\end{equation}
+
+While training the model, using the recursive equation, we can update $\zeta_i$ in an online fashion, instead of pre-computing and storing the retention variables $\{\zeta_i\}_{i=1}^N$ at each time step $i$. 
+
+\subsection{Online Computation of Retention Variable}
 
 \begin{algorithm}
-    \caption{Training Algorithm for Image Classification}
+    \caption{Online Learning}
     \begin{algorithmic}[1]
     \Procedure{TrainModel}{$Data$, $Epochs$}
         \State Initialize $Model$
         \For{$epoch = 1$ \textbf{to} $Epochs$}
-            \For{each $batch$ in $Data$}
-                \State $Inputs, Targets \gets batch$
-                \State $Predictions \gets \Call{ForwardPass}{Model, Inputs}$
+            \State $\zeta = [0,0,0,,]^d$
+            \For{$i = 1$ \textbf{to} $N$}
+                \State $\zeta_i, Targets \gets Retention(x_i,\zeta)$
+                \State $\zeta = \zeta_i$
+                \State $Predictions \gets \Call{ForwardPass}{Model, \zeta_k}$
                 \State $Loss \gets \Call{ComputeLoss}{Predictions, Targets}$
                 \State Perform backpropagation to compute gradients
                 \State Update $Model$ parameters
@@ -123,14 +141,46 @@ For instance, if we are interested in modelling the dynamics of human motor cort
     \EndProcedure
     \end{algorithmic}
     \end{algorithm}
-    
+   
+\subsection{Offline Computation of Retention Variable}   
 
-In this section, we describe how retention based models are trained. 
-While training the model, we apply eq(6) to recursively update $\zeta_i$ in an online fashion, instead of pre-computing and storing $\{\zeta_i\}_{i=1}^N$ separately
+If the input dataset is drawn from a discrete space, then the retention variables can be ${\zeta_i}_{i=1}^N$ can be pre-computed from the dataset ${x_i}_{i=1}^N$. After computation of the retention variables, parametrized models can be trained similar to existing supervised learning methods where batch of training data is used to compute gradients and update model weights at each iteration.\\
 
-\subsection{Online Computation of Retention Variable}
+ \begin{algorithm}
+        \caption{Offline Learning}
+        \begin{algorithmic}[1]
+        \Procedure{TrainModel}{$Data$, $Epochs$}
+            \State Initialize $Model$
+            \For{$epoch = 1$ \textbf{to} $Epochs$}
+                \For{each $batch$ in $Data$}
+                    \State $Inputs, Targets \gets batch$
+                    \State $Predictions \gets \Call{ForwardPass}{Model, Inputs}$
+                    \State $Loss \gets \Call{ComputeLoss}{Predictions, Targets}$
+                    \State Perform backpropagation to compute gradients
+                    \State Update $Model$ parameters
+                \EndFor
+                \State Evaluate model on validation data
+                \If{performance improves}
+                    \State Update best model
+                \EndIf
+            \EndFor
+            \State \textbf{return} Trained $Model$
+        \EndProcedure
+        \end{algorithmic}
+        \end{algorithm}
+     
+While online learning based method is memory efficient, we found that Offline learning based method is faster, to train on GPUs. 
 
-\subsection{Offline Computation of Retention Variable}
+
+
+
+
+
+
+
+
+
+
 
 
 

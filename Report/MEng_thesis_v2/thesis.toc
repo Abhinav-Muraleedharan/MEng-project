@@ -11,24 +11,13 @@
 \contentsline {subsection}{{Neural Spike to behavior model }}{7}{subsection*.4}%
 \contentsline {section}{\numberline {3.3}{Architecture}}{8}{section.3.3}%
 \contentsline {section}{\numberline {3.4}{Training Retention Based Models}}{9}{section.3.4}%
-\contentsline {subsection}{{Online Computation of Retention Variable}}{10}{subsection*.7}%
-\contentsline {subsection}{{Offline Computation of Retention Variable}}{10}{subsection*.8}%
-\contentsline {chapter}{\numberline {4}{Results}}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}{A New Section}}{11}{section.4.1}%
-\contentsline {subsection}{{Test for a Subsection}}{11}{subsection*.9}%
-\contentsline {subsection}{{Autem Timeam}}{11}{subsection*.10}%
-\contentsline {section}{\numberline {4.2}{Another Section in This Chapter}}{12}{section.4.2}%
-\contentsline {subsection}{{Personas Initialmente}}{12}{subsection*.11}%
-\contentsline {subsubsection}{{A Subsubsection}}{12}{subsubsection*.12}%
-\contentsline {paragraph}{{A Paragraph Example}}{12}{paragraph*.13}%
-\contentsline {section}{\numberline {4.3}{Some Math}}{13}{section.4.3}%
+\contentsline {subsection}{{Recursive relationship between Retention Variables}}{10}{subsection*.7}%
+\contentsline {subsection}{{Online Computation of Retention Variable}}{10}{subsection*.8}%
+\contentsline {subsection}{{Offline Computation of Retention Variable}}{11}{subsection*.9}%
+\contentsline {chapter}{\numberline {4}{Results}}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}{Generative Modeling of Neural Spike Patterns}}{12}{section.4.1}%
+\contentsline {subsection}{{Model Performance}}{12}{subsection*.10}%
+\contentsline {subsection}{{Qualitative Analysis}}{12}{subsection*.11}%
+\contentsline {subsection}{{Scalability}}{13}{subsection*.12}%
 \contentsline {chapter}{\numberline {5}{Conclusion}}{14}{chapter.5}%
-\contentsline {section}{\numberline {5.1}{A New Section}}{14}{section.5.1}%
-\contentsline {subsection}{{Test for a Subsection}}{14}{subsection*.15}%
-\contentsline {subsection}{{Autem Timeam}}{14}{subsection*.16}%
-\contentsline {section}{\numberline {5.2}{Another Section in This Chapter}}{15}{section.5.2}%
-\contentsline {subsection}{{Personas Initialmente}}{15}{subsection*.17}%
-\contentsline {subsubsection}{{A Subsubsection}}{15}{subsubsection*.18}%
-\contentsline {paragraph}{{A Paragraph Example}}{15}{paragraph*.19}%
-\contentsline {section}{\numberline {5.3}{Some Math}}{16}{section.5.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

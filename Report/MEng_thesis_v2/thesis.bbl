@@ -14,9 +14,6 @@ Mehdi Azabou, Vinam Arora, Venkataramana Ganesh, Ximeng Mao, Santosh
   Lajoie, and Eva~L Dyer, \emph{A unified, scalable framework for neural
   population decoding}, arXiv preprint arXiv:2310.16046 (2023).
 
-\bibitem[Gau27]{gauss}
-Carl~Friedrich Gau\ss, \emph{General investigations of curved surfaces}, 1827.
-
 \bibitem[GZ22]{geneva2022transformers}
 Nicholas Geneva and Nicholas Zabaras, \emph{Transformers for modeling physical
   systems}, Neural Networks \textbf{146} (2022), 272--289.
