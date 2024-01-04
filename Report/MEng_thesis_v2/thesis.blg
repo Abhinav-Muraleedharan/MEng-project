@@ -24,45 +24,45 @@ Warning--missing journal, volume, and year in radford2018improving
 Warning--missing pages in radford2018improving
 Warning--missing pages in vaswani2017attention
 Warning--missing pages in ye2021representation
-You've used 9 entries,
+You've used 10 entries,
             2624 wiz_defined-function locations,
-            622 strings with 6589 characters,
-and the built_in function-call counts, 3867 in all, are:
-= -- 318
-> -- 272
+            629 strings with 6907 characters,
+and the built_in function-call counts, 4426 in all, are:
+= -- 375
+> -- 297
 < -- 3
-+ -- 99
-- -- 98
-* -- 372
-:= -- 676
-add.period$ -- 9
-call.type$ -- 9
-change.case$ -- 75
-chr.to.int$ -- 9
-cite$ -- 17
-duplicate$ -- 130
-empty$ -- 234
-format.name$ -- 106
-if$ -- 719
++ -- 108
+- -- 107
+* -- 411
+:= -- 757
+add.period$ -- 10
+call.type$ -- 10
+change.case$ -- 82
+chr.to.int$ -- 10
+cite$ -- 18
+duplicate$ -- 155
+empty$ -- 277
+format.name$ -- 116
+if$ -- 843
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 19
-newline$ -- 38
-num.names$ -- 27
-pop$ -- 87
+missing$ -- 21
+newline$ -- 41
+num.names$ -- 30
+pop$ -- 95
 preamble$ -- 1
-purify$ -- 84
+purify$ -- 92
 quote$ -- 0
-skip$ -- 88
+skip$ -- 115
 stack$ -- 0
-substring$ -- 139
-swap$ -- 17
+substring$ -- 178
+swap$ -- 26
 text.length$ -- 3
 text.prefix$ -- 3
 top$ -- 0
-type$ -- 68
+type$ -- 76
 warning$ -- 8
-while$ -- 30
-width$ -- 14
-write$ -- 94
+while$ -- 36
+width$ -- 15
+write$ -- 106
 (There were 8 warnings)

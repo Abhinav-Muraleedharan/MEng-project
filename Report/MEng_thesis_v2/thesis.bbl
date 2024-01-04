@@ -37,6 +37,13 @@ Chethan Pandarinath, Daniel~J O’Shea, Jasmine Collins, Rafal Jozefowicz,
   population dynamics using sequential auto-encoders}, Nature methods
   \textbf{15} (2018), no.~10, 805--815.
 
+\bibitem[RFB15]{ronneberger2015u}
+Olaf Ronneberger, Philipp Fischer, and Thomas Brox, \emph{U-net: Convolutional
+  networks for biomedical image segmentation}, Medical Image Computing and
+  Computer-Assisted Intervention--MICCAI 2015: 18th International Conference,
+  Munich, Germany, October 5-9, 2015, Proceedings, Part III 18, Springer, 2015,
+  pp.~234--241.
+
 \bibitem[RNS{\etalchar{+}}18]{radford2018improving}
 Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever, et~al.,
   \emph{Improving language understanding by generative pre-training}.
